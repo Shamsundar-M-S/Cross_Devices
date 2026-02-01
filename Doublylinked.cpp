@@ -112,7 +112,59 @@ class Doubly{
         }
         //delete from the end 
         void deletefromend(){
-            
+            Node * curr=head;
+            if (!head){
+                cout<<"invalid"<<endl;
+            }
+            while(curr && curr->next!=NULL){
+                curr=curr->next;
+            }
+            if (curr->prev){
+                curr->prev->next=NULL;
+            }
+            else{
+                head=NULL;
+            }
+            delete curr;
+        }
+        //delete from position
+        void Deleteusingpos(int pos){
+            if(!head && pos<1){
+                cout<<"Invalid"<<endl;
+            }
+            int count=0;
+            Node * curr=head;
+            while(curr && count<pos){
+                count++;
+                curr=curr->next;
+            }
+            curr->prev->next=curr->next;
+            curr->next->prev=curr->prev;
+            delete curr;
+            cout<<"deleted from position"<<endl;
+
+        }
+        //traversal
+        //forward
+        void traversefwd(){
+            Node * curr=head;
+            cout<<"dll"<<endl;
+            while(curr){
+                cout<<curr->data<<endl;
+                curr=curr->next;
+            }
+        }
+        //reverse
+        void traverserev(){
+            Node * curr=head;
+            cout<<"dll"<<endl;
+            while (curr){
+                curr=curr->next;
+            }
+            while(curr){
+                cout<<curr->data<<endl;
+                curr=curr->prev;
+            }
         }
 
 };
