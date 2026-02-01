@@ -124,4 +124,35 @@ class LinkedList{
             delete curr;
             cout<<"deleted from end"<<endl;
         }
+        //delete by value
+        void deleteByValue(int val){
+            Node * curr=head;
+            Node * prev=NULL;
+            while(curr && curr->data!=val){
+                prev=curr;
+                curr=curr->next;
+            }
+            prev->next=curr->next;
+            delete curr;
+            cout<<"deleted by value"<<endl;
+        }
+        //delete by position
+        void deleteNyPos(int pos){
+            Node * curr=head;
+            Node * prev=NULL;
+            if (!head){
+                cout<<"invalid list"<<endl;
+            }
+            int count=1;
+            while(count<pos){
+                prev=curr;
+                curr=curr->next;
+            }
+            if(!prev){
+                head=curr->next; 
+            }
+            prev->next=curr->next;
+            delete curr;
+
+        }
 };
