@@ -34,6 +34,9 @@ class LinkedList{
         void insertAtEnd(int val){
             Node * newnode = new Node(val);
             Node * curr=head;
+            if(!head){
+                head=newnode;
+            }
             while(curr->next!=NULL){
                 curr=curr->next;
             }
@@ -158,7 +161,7 @@ class LinkedList{
         void search(int DATA){
             Node * curr=head;
             while (curr){
-                if (curr->data=DATA){
+                if (curr->data==DATA){
                     cout<<"Found"<<endl;
                 }
                 else{
