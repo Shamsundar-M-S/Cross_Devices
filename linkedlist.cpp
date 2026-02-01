@@ -153,6 +153,28 @@ class LinkedList{
             }
             prev->next=curr->next;
             delete curr;
-
+        }
+        //search an element
+        void search(int DATA){
+            Node * curr=head;
+            while (curr){
+                if (curr->data=DATA){
+                    cout<<"Found"<<endl;
+                }
+                else{
+                    cout<<"Not found"<<endl;
+                }
+                curr=curr->next;
+            }
+        }
+        //count
+        void count(){
+            Node * curr=head;
+            int count=0;
+            while(curr){
+                count++;
+                curr=curr->next;
+            }
+            cout<<"No of elements in the list is: "<<count<<endl;
         }
 };
